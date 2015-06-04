@@ -1,0 +1,18 @@
+string1 = "1c0111001f010100061a024b53535009181c"
+string2 = "686974207468652062756c6c277320657965"
+raw1 = bin(int(string1, base=16))
+raw2 = bin(int(string2, base=16))
+bin1 = raw1[2:].zfill(len(string1)*4)
+bin2 = raw2[2:].zfill(len(string2)*4)
+
+output = ""
+
+for x, num in enumerate(bin1):
+    if int(num) + int(bin2[x]) == 1:
+        output+="1"
+    else:
+        output+="0"
+    
+outputHex = hex(int(output, 2))
+
+print(outputHex)
